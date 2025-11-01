@@ -1,0 +1,15 @@
+#go inside container shell using git bash
+kubectl exec -it mongodb-deployment-85b954f8f-42nlb -- "sh"
+kubectl exec -it mongodb-deployment-85b954f8f-42nlb -- "bash"
+
+#go inside container shell using cmd or powershell
+kubectl exec -it mongodb-deployment-85b954f8f-42nlb -- /bin/sh
+kubectl exec -it mongodb-deployment-85b954f8f-42nlb -- /bin/bash
+
+#mongo shell access inside container
+mongo -u admin -p admin123 --authenticationDatabase "admin"
+show dbs;
+use bookstoredb
+db.books.find()
+db.books.insertOne({ title: "Kubernetes in Action", author: "Marko Lukša" })
+exit
